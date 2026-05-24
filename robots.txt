@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://habib-achour-advisory.vercel.app/sitemap.xml

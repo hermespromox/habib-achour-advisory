@@ -12,6 +12,12 @@ const htmlDoc = document.documentElement;
 const LANG_KEY = 'habib-site-lang';
 
 function getLang() {
+  // URL param takes priority (for hreflang alternate URLs)
+  const params = new URLSearchParams(window.location.search);
+  const urlLang = params.get('lang');
+  if (urlLang === 'fr') return 'fr';
+  if (urlLang === 'en') return 'en';
+
   try {
     const stored = localStorage.getItem(LANG_KEY);
     if (stored === 'fr' || stored === 'en') return stored;
