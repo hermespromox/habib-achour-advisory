@@ -94,25 +94,30 @@ button { font: inherit; }
 }
 .lang-toggle {
   display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  padding: 8px 12px;
   border: 1px solid var(--color-border);
   border-radius: var(--radius-button);
   background: var(--color-surface);
-  color: var(--color-strong);
+  overflow: hidden;
+}
+.lang-option {
+  padding: 8px 14px;
+  border: none;
+  background: transparent;
+  color: rgba(82, 16, 0, 0.54);
   cursor: pointer;
   font-weight: 800;
-  font-size: 13px;
-  transition: background 150ms ease, transform 150ms ease, box-shadow 150ms ease;
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  transition: background 150ms ease, color 150ms ease;
 }
-.lang-toggle:hover {
+.lang-option.active {
+  background: var(--color-accent);
+  color: #fff;
+}
+.lang-option:not(.active):hover {
   background: var(--color-elevated);
-  transform: translateY(-1px);
-  box-shadow: var(--shadow-card);
+  color: var(--color-strong);
 }
-.lang-toggle .material-symbols-outlined { font-size: 18px; }
-.lang-label { min-width: 22px; text-align: center; }
 .nav-links a {
   padding: 10px 14px;
   border-radius: var(--radius-button);

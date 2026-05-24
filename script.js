@@ -3,7 +3,6 @@ const navToggle = document.querySelector('[data-nav-toggle]');
 const navLinks = document.querySelector('[data-nav-links]');
 const year = document.querySelector('[data-year]');
 const langToggle = document.querySelector('[data-lang-toggle]');
-const langLabel = document.querySelector('[data-lang-label]');
 const htmlDoc = document.documentElement;
 
 /* ── Language switching ── */
@@ -41,14 +40,11 @@ function setLang(lang) {
     }
   });
 
-  // Update lang label
-  if (langLabel) {
-    langLabel.textContent = lang === 'fr' ? 'EN' : 'FR';
-  }
-
-  // Update lang toggle title
+  // Update lang toggle active state
   if (langToggle) {
-    langToggle.setAttribute('title', lang === 'fr' ? 'Switch to English' : 'Passer en français');
+    langToggle.querySelectorAll('.lang-option').forEach(btn => {
+      btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
+    });
   }
 
   // Update JSON-LD schema
@@ -74,9 +70,11 @@ function setLang(lang) {
 const currentLang = getLang();
 setLang(currentLang);
 if (langToggle) {
-  langToggle.addEventListener('click', () => {
-    const next = htmlDoc.getAttribute('data-lang') === 'fr' ? 'en' : 'fr';
-    setLang(next);
+  langToggle.addEventListener('click', (e) => {
+    const btn = e.target.closest('.lang-option');
+    if (!btn) return;
+    const next = btn.getAttribute('data-lang');
+    if (next) setLang(next);
   });
 }
 
