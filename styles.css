@@ -87,6 +87,32 @@ button { font: inherit; }
 .brand strong { display: block; line-height: 1.1; font-size: 16px; }
 .brand small { display: block; line-height: 1.1; font-size: 12px; color: rgba(82, 16, 0, 0.66); }
 .nav-links { display: flex; align-items: center; gap: 8px; }
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.lang-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 8px 12px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-button);
+  background: var(--color-surface);
+  color: var(--color-strong);
+  cursor: pointer;
+  font-weight: 800;
+  font-size: 13px;
+  transition: background 150ms ease, transform 150ms ease, box-shadow 150ms ease;
+}
+.lang-toggle:hover {
+  background: var(--color-elevated);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-card);
+}
+.lang-toggle .material-symbols-outlined { font-size: 18px; }
+.lang-label { min-width: 22px; text-align: center; }
 .nav-links a {
   padding: 10px 14px;
   border-radius: var(--radius-button);
