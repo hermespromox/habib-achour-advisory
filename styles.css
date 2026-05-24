@@ -366,7 +366,6 @@ h3 { font-size: 24px; letter-spacing: -0.035em; }
 }
 .contact-card p { max-width: 680px; color: rgba(82,16,0,.78); font-size: 18px; }
 .contact-actions { display: grid; gap: 12px; justify-items: stretch; }
-.copy-status { min-height: 20px; margin: 0; font-size: 13px !important; color: var(--color-accent) !important; }
 .footer { padding: 28px 0 48px; color: rgba(82,16,0,.68); font-size: 14px; }
 .footer-grid { display: flex; justify-content: space-between; gap: 20px; border-top: 1px solid var(--color-border); padding-top: 22px; }
 .footer p { margin: 0; }

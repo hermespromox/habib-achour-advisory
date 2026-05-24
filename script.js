@@ -2,8 +2,6 @@ const header = document.querySelector('[data-header]');
 const navToggle = document.querySelector('[data-nav-toggle]');
 const navLinks = document.querySelector('[data-nav-links]');
 const year = document.querySelector('[data-year]');
-const copyButton = document.querySelector('[data-copy]');
-const copyStatus = document.querySelector('[data-copy-status]');
 const langToggle = document.querySelector('[data-lang-toggle]');
 const langLabel = document.querySelector('[data-lang-label]');
 const htmlDoc = document.documentElement;
@@ -51,11 +49,6 @@ function setLang(lang) {
   // Update lang toggle title
   if (langToggle) {
     langToggle.setAttribute('title', lang === 'fr' ? 'Switch to English' : 'Passer en français');
-  }
-
-  // Update copy button strings
-  if (copyButton) {
-    copyButton.setAttribute('data-copy-string', copyButton.getAttribute(lang === 'fr' ? 'data-copy-fr' : 'data-copy-en'));
   }
 
   // Update JSON-LD schema
@@ -115,24 +108,6 @@ const observer = new IntersectionObserver((entries) => {
 }, { threshold: 0.12 });
 
 document.querySelectorAll('.reveal').forEach((element) => observer.observe(element));
-
-/* ── Copy positioning line ── */
-if (copyButton) {
-  const enLine = copyButton.getAttribute('data-copy-en');
-  const frLine = copyButton.getAttribute('data-copy-fr');
-
-  copyButton.addEventListener('click', async () => {
-    const lang = htmlDoc.getAttribute('data-lang') || 'en';
-    const line = lang === 'fr' ? frLine : enLine;
-    const feedback = lang === 'fr' ? 'Phrase copiée.' : 'Positioning line copied.';
-    try {
-      await navigator.clipboard.writeText(line);
-      if (copyStatus) copyStatus.textContent = feedback;
-    } catch (error) {
-      if (copyStatus) copyStatus.textContent = line;
-    }
-  });
-}
 
 /* ── Scroll header shadow ── */
 window.addEventListener('scroll', () => {
