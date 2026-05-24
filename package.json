@@ -1,0 +1,1 @@
+{"scripts":{"build":"mkdir -p dist && cp index.html styles.css script.js favicon.svg dist/","dev":"python3 -m http.server 5173"},"dependencies":{},"devDependencies":{},"name":"habib-achour-advisory","version":"1.0.0","private":true}
