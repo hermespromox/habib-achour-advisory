@@ -184,6 +184,7 @@ h3 { font-size: 24px; letter-spacing: -0.035em; }
 .button.primary { background: var(--color-accent); border-color: var(--color-accent); color: #fff; box-shadow: 0 16px 32px rgba(255, 72, 1, 0.22); }
 .button.primary:hover { background: var(--color-accent-hover); color: #fff; }
 .button.secondary { background: rgba(255, 251, 245, 0.88); color: var(--color-strong); }
+.locked-button { cursor: not-allowed; opacity: 0.72; pointer-events: none; }
 .trust-row {
   display: flex;
   flex-wrap: wrap;
